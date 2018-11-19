@@ -6,6 +6,36 @@
 (function(){
 
     window.BASIC_CONFIG = {
+        //banner配置，{background:背景图,url:跳转链接,html:文案,btnList:按钮配置}
+        bannerList:[
+            {
+
+                background:'img/banner/banner1.jpg',
+                url:'',
+                html:' <p class="title">行业+互联网</p><p class="sub-title">方案服务商</p><p class="desc">定制软件开发服务，更懂你的需求</p>',
+                btnList:[
+                    {
+                        html:'<a class="cm-btn btn">了解更多</a>',
+                        action:function () {
+                            navGo(event,'about');
+                        }
+                    },
+                    {
+                        html:'<a  class="cm-btn btn">联系我们</a>',
+                        action:function () {
+                            navGo(event,'contact');
+                        }
+                    }
+
+                ],
+            },
+            {
+                background:'img/banner/banner2.jpg',
+                url:'https://www.aliyun.com/',
+                html:' <p class="title">这是大标题</p><p class="sub-title">这是副标题</p><p class="desc">这是描述</p>',
+                btnList:[],
+            },
+        ],
 
         //案例配置, {type:'案例类型',name:案例名称,time:案例时间,description:案例描述,coverPath:案例封面图片链接,qrcodePath:案例二维码图片链接（非必填）,linkUrl:案例跳转链接(非必填),}
         caseList:[

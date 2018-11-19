@@ -181,14 +181,14 @@ body{
 }
 .dianjia-logo-icon{
     display: inline-block;
-    background: url("../img/page/dianjia-logo-icon.jpg") no-repeat;
+  /*  background: url("../img/page/dianjia-logo-icon.jpg") no-repeat;*/
     width:100px;
     height:100px;
     background-size: 100% 100%;
 }
 .dingxi-logo-icon{
     display: inline-block;
-    background: url("../img/page/dingxi-logo-icon.jpg") no-repeat;
+ /*   background: url("../img/page/dingxi-logo-icon.jpg") no-repeat;*/
     width:100px;
     height:100px;
     background-size: 100% 100%;
@@ -225,17 +225,26 @@ body{
     bottom: 10%;
     right: 10px;
     border-radius: 50%;
-    box-shadow: 0px 0px 5px rgba(255, 112, 67,0.8);
+    box-shadow: 0px 0px 5px rgba(0, 193, 222,0.8);
     cursor: pointer;
+    background-color: #fff;
 }
 .header{
     padding: 0px 40px;
     overflow: hidden;
     position: fixed;
     width: 100%;
-    background: #fff;
-    box-shadow: 0px 2px 2px rgba(0,0,0,0.08);
+   /* background: #fff;*/
+   /* background: rgba(255,255,255,0.1);*/
+  /*  box-shadow: 0px 2px 2px rgba(0,0,0,0.08);*/
     z-index: 1000;
+    border-bottom: 1px solid hsla(0,0%,100%,.15);
+    transition: all 0.3s;
+}
+.header.scroll{
+    background: #2b303b;
+    border-bottom: none;
+    box-shadow: 0px 2px 2px rgba(0,0,0,0.08);
 }
 .header .menu-icon{
     display: none;
@@ -247,6 +256,7 @@ body{
     float: left;
     display: inline-block;
     height: 49px;
+    padding: 8px 0px;
 }
 .header .logo img{
     height: 100%;
@@ -263,22 +273,26 @@ body{
     display: block;
     padding: 15px 20px;
     font-size: 14px;
-    color: #000;
-   /* transition: background 0.3s;*/
+    color: #fff;
+    transition: all 0.3s;
 }
 .nav-list li a.active{
-    background: rgb(255, 112, 67);
-    color: #fff;
+   /* background: rgb(255, 112, 67);*/
+    background: rgba(255,255,255,0.08);
+    color: #00c1de;
 }
 .nav-list li a:hover{
-    background: rgba(255, 112, 67,1);
-    color: #fff;
+  /*  background: rgba(255, 112, 67,1);
+    color: #fff;*/
+    background: rgba(255,255,255,0.05);
+    color: #00c1de;
 }
 .container{
-    padding-top: 49px;
+   /* padding-top: 49px;*/
 }
 .banner-panel{
-    background: url("../img/page/banner.jpg") no-repeat center;
+   /* background: url("../img/page/banner.jpg") no-repeat center;*/
+    background: rgb(2, 7, 30);
     height: 520px;
     width: 100%;
     background-size: 100% auto;
@@ -314,7 +328,7 @@ body{
     color: #fff;
     font-size: 12px;
     border-radius: 5px;
-    background: rgb(255, 112, 67);
+    background: rgba(255, 255,255,0.2);
 }
 .slogan-block .btn-list .btn+.btn{
     margin-left: 10px;
@@ -322,20 +336,32 @@ body{
     background: none;
 }
 .advantages-panel{
-    background: rgb(255, 112, 67);
+    /*background: rgb(255, 112, 67);*/
     color: #fff;
+    background: #353840;
+    /*background-color: hsla(0,0%,100%,.1);*/
 }
 .advantages-list{
     display: flex;
-    justify-content: space-between;
-    padding: 15px 0px;
+    justify-content: center;
 }
 .advantages-list li{
+    padding: 20px 30px;
     display: flex;
     align-items: center;
+    border-right: 1px solid rgba(255,255,255,0.1);
+}
+.advantages-list li:first-child{
+    border-left: 1px solid rgba(255,255,255,0.1);
 }
 .advantages-list li .text{
     margin-left: 10px;
+    font-size: 16px;
+}
+.advantages-list li .text p+p{
+    margin-top: 5px;
+    font-size: 14px;
+    opacity: 0.6;
 }
 .cm-panel+.cm-panel{
     margin-top: 40px;
@@ -489,7 +515,7 @@ body{
     font-size: 24px;
 }
 .about-panel{
-    background: rgb(255, 112, 67);;
+    background: rgba(57,59,67,1);
 }
 .about-panel .content-hd .title{
     color: #fff;
@@ -514,7 +540,7 @@ body{
     color: #fff;
     font-size: 12px;
     border-radius: 5px;
-    background: rgb(255, 112, 67);
+    background: none;
     border: 1px solid #fff;
 }
 .member-panel{
@@ -539,7 +565,7 @@ body{
 .member-item  .title{
     padding: 15px 0px;
     font-size: 16px;
-    color: rgb(255, 112, 67);
+    color: #333;
 }
 .member-item .desc{
     font-size: 16px;
@@ -580,7 +606,7 @@ body{
     border-left: 2px solid #333;
 }
 .type-list li.active{
-    color: rgb(255, 112, 67);
+    color: #00c1de;
 }
 .case-list{
     text-align: left;
@@ -604,7 +630,7 @@ body{
     left: 0px;
     width: 100%;
     height: 100%;
-    background: rgba(255, 112, 67,0.4);
+    background: rgba(0, 0, 0,0.5);
 }
 .case-item .cover .mask img{
     width: 160px;
@@ -618,13 +644,14 @@ body{
 }
 .case-item .sub{
     font-size: 14px;
-    color: rgb(255, 112, 67);
+    color: #333;
     padding: 10px 0px 2px 0px;
 }
 .case-item .sub .time{
     float: right;
 }
 .case-item .desc{
+    margin-top: 4px;
     font-size: 12px;
     color: #666;
 }
@@ -663,7 +690,8 @@ body{
     width: 288px;
     padding: 20px;
     float: right;
-    background:  rgb(255, 112, 67);
+   /* background:  rgb(255, 112, 67);*/
+    background: rgba(57,59,67,1);
     color: #fff;
 }
 .contact-block .title{
@@ -715,7 +743,7 @@ body{
      text-align: center;
      color: #fff;
      font-size: 12px;
-     background: rgb(255, 112, 67);
+     background: #2b303b;
  }
 .form .btn-wrap .tips{
     margin-top: 20px;
@@ -775,7 +803,7 @@ body{
 }
 .footer{
     padding: 15px 20px;
-    background: rgb(255, 112, 67);
+    background: #2b303b;
     font-size: 12px;
     color: #fff;
     text-align: center;
@@ -870,28 +898,33 @@ body{
 
 /*移动端适配*/
 @media screen and (max-width: 1024px){
+    .logo{
+        padding: 0.16rem 0rem 0.16rem 0.2rem !important;
+    }
     .banner-panel{
         height: 4rem;
     }
     .slogan-block{
-        padding: 0rem 0.4rem;
+        padding: 0.7rem 0.4rem 0rem 0.4rem;
     }
     .slogan-block .title{
-        font-size: 0.48rem;
+        font-size: 0.4rem;
     }
     .slogan-block .sub-title{
-        font-size: 0.4rem;
+        font-size: 0.32rem;
         margin-top: 0.1rem;
     }
     .slogan-block .desc{
         font-size: 0.28rem;
-        margin-top: 0.2rem;
+        margin-top: 0.1rem;
     }
     .slogan-block .btn-list{
-        margin-top: 0.4rem;
+        margin-top: 0.16rem;
     }
     .slogan-block .btn-list .btn{
-        width: 100px;
+        width: 2rem;
+        height: 0.6rem;
+        line-height: 0.6rem;
     }
     .advantages-list{
         width: 100%;
@@ -984,7 +1017,7 @@ body{
         width: 0.2rem;
         height: 0.2rem;
         border-radius: 50%;
-        background: rgb(255, 112, 67);;
+        background: #00c1de;
     }
     .step-item:after{
         position: absolute;
@@ -993,7 +1026,7 @@ body{
         left: 0.08rem;
         width: 1px;
         height: 100%;
-        background: rgb(255, 112, 67);;
+        background: #00c1de;
     }
     .step-item .title{
         font-size: 0.32rem;
@@ -1105,6 +1138,7 @@ body{
         float: none;
         width: 100%;
         border-top:1px solid #e5e5e5;
+        background: #353840;
     }
     .nav-list li{
         float: none;

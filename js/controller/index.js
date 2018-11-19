@@ -8,6 +8,11 @@ $(function () {
     var isMobile=utils.deviceType();
 
     /**
+     * 图片懒加载
+     */
+    $(".lazy").lazyload({effect: "fadeIn"});
+
+    /**
      * 导航模块
      */
     var $navList=$('.nav-list li');
@@ -45,15 +50,51 @@ $(function () {
      */
     var $window=$(window);
     var $toTopBtn=$('.to-top-btn');
+    var $header=$('.header');
     $(document).on('scroll', function () {
         var winTop = $window.scrollTop(); //当前滚动条的高度
         if(winTop>200){
+            $header.addClass('scroll');
             $toTopBtn.removeClass('cm-hidden');
         }else{
+            $header.removeClass('scroll');
             $toTopBtn.addClass('cm-hidden');
         }
     }.bind(this));
 
+    /**
+     * 轮播
+     */
+    var bannerList=BASIC_CONFIG.bannerList;
+    var $swiperWrapper=$('.swiper-wrapper');
+    bannerList.forEach(function (entry,index) {
+        var $btnList=$('<div class="btn-list"></div>');
+        entry.btnList.forEach(function (item,i) {
+            var $item=$(item.html);
+            if(item.action){
+                $item.on('click',function (event) {
+                    event.stopPropagation();
+                    item.action();
+                });
+            }
+            $btnList.append($item);
+        })
+        
+        var $banner=$('<a class="swiper-slide" style="background: url('+entry.background+') no-repeat center;background-size:cover;" href="'+(entry.url?entry.url:'#')+'">' +
+                '<div class="cm-container slogan-wrap"><div class="slogan-block">'+entry.html+'</div></div>'+
+            '</a>');
+        if(entry.url){
+            $banner.attr('target','_blank');
+        }
+        $banner.find('.slogan-block').append($btnList);
+        $swiperWrapper.append($banner);
+    });
+    $('.banner-lazy').lazyload({});
+    var mySwiper = new Swiper('.swiper-container', {
+        autoplay: 10000,//可选选项，自动滑动
+        pagination : '.swiper-pagination',
+        paginationClickable :true,
+    })
 
     /**
      * 经典案例模块
@@ -95,7 +136,7 @@ $(function () {
         var listDomStr='';
         $.each(curCaseList,function (i,item) {
             listDomStr+='<li class="case-item">' +
-                '<div class="cover"style="background: url(\'img/case/'+item.coverPath+'\') no-repeat center;background-size: cover;">' +
+                '<div class="cover case-cover-lazy" data-original="img/case/'+item.coverPath+'" style="background-repeat: no-repeat;background-position: center;background-size: cover;">' +
                 '<div class="mask '+(item.qrcodePath?'':'cm-hidden')+'"><img src="img/case/'+item.qrcodePath+'" alt=""></div> </div>' +
                 '<div class="info">' +
                 '<p class="sub"> <span class="title">'+item.name+'</span> <span class="time">'+item.time+'</span> </p>' +
@@ -103,6 +144,7 @@ $(function () {
                 '</div> </li>';
         });
         $caseList.html(listDomStr);
+        $(".case-cover-lazy").lazyload();
     }
     renaderCaseList(typeList[0]);
 
