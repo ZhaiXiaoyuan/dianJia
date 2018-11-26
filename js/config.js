@@ -10,7 +10,7 @@
         bannerList:[
             {
 
-                background:'img/banner/banner1.jpg',
+                background:'banner1.jpg',
                 url:'',
                 html:' <p class="title">行业+互联网</p><p class="sub-title">方案服务商</p><p class="desc">定制软件开发服务，更懂你的需求</p>',
                 btnList:[
@@ -30,7 +30,7 @@
                 ],
             },
             {
-                background:'img/banner/banner2.jpg',
+                background:'banner2.jpg',
                 url:'https://www.aliyun.com/',
                 html:' <p class="title">这是大标题</p><p class="sub-title">这是副标题</p><p class="desc">这是描述</p>',
                 btnList:[],

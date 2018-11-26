@@ -54,10 +54,10 @@ $(function () {
     $(document).on('scroll', function () {
         var winTop = $window.scrollTop(); //当前滚动条的高度
         if(winTop>200){
-            $header.addClass('scroll');
+           /* $header.addClass('scroll');*/
             $toTopBtn.removeClass('cm-hidden');
         }else{
-            $header.removeClass('scroll');
+           /* $header.removeClass('scroll');*/
             $toTopBtn.addClass('cm-hidden');
         }
     }.bind(this));
@@ -79,8 +79,8 @@ $(function () {
             }
             $btnList.append($item);
         })
-        
-        var $banner=$('<a class="swiper-slide" style="background: url('+entry.background+') no-repeat center;background-size:cover;" href="'+(entry.url?entry.url:'#')+'">' +
+        entry.background='img/banner/'+entry.background;
+        var $banner=$('<a class="swiper-slide" style="background: url('+(entry.background)+') no-repeat center;background-size:cover;" href="'+(entry.url?entry.url:'#')+'">' +
                 '<div class="cm-container slogan-wrap"><div class="slogan-block">'+entry.html+'</div></div>'+
             '</a>');
         if(entry.url){
@@ -91,7 +91,7 @@ $(function () {
     });
     $('.banner-lazy').lazyload({});
     var mySwiper = new Swiper('.swiper-container', {
-        autoplay: 10000,//可选选项，自动滑动
+        autoplay: 5000,//可选选项，自动滑动
         pagination : '.swiper-pagination',
         paginationClickable :true,
     })
@@ -139,7 +139,10 @@ $(function () {
                 '<div class="cover case-cover-lazy" data-original="img/case/'+item.coverPath+'" style="background-repeat: no-repeat;background-position: center;background-size: cover;">' +
                 '<div class="mask '+(item.qrcodePath?'':'cm-hidden')+'"><img src="img/case/'+item.qrcodePath+'" alt=""></div> </div>' +
                 '<div class="info">' +
-                '<p class="sub"> <span class="title">'+item.name+'</span> <span class="time">'+item.time+'</span> </p>' +
+                '<p class="sub">' +
+                '<span class="title">'+item.name+'</span>' +
+             /*   '<span class="time">'+item.time+'</span>' +*/
+                '</p>' +
                 '<p class="desc">'+item.description+'</p>' +
                 '</div> </li>';
         });
@@ -186,4 +189,16 @@ $(function () {
         })
     }
 
+    /**
+     *
+     */
+ /*   $(window).resize(function () {          //当浏览器大小变化时
+       if(localStorage.getItem('reloaded')!='true'&&document.documentElement.scrollWidth<=500){
+           localStorage.setItem('reloaded','true');
+           window.location.reload();
+       }else{
+           localStorage.setItem('reloaded','false');
+       }
+    });
+*/
 })
